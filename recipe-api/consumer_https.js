@@ -12,6 +12,8 @@ const options = {
     ca: fs.readFileSync(__dirname + '/../shared/tls/basic-certificate.cert'),
   }),
 };
+
+// here client runs in http and client requests server using https
 server.get('/', async () => {
   const req = await fetch(`https://${TARGET}/recipes/42`, options);
   const payload = await req.json();
